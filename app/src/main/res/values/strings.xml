@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Hoja de vida</string>
+    <string name="act_4">Bienvenidos</string>
+    <string name="act_1">Login</string>
+    <string name="act_2">Crear cuenta</string>
+    <string name="act_3">Bienvenido</string>
+    <string name="title_activity_bienvenidos">Bienvenidos</string>
+    <string name="title_home">Experiencia</string>
+    <string name="title_dashboard">Perfil</string>
+    <string name="title_notifications">Buscar empleo</string>
+</resources>
