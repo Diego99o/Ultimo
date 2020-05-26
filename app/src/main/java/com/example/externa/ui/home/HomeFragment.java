@@ -34,6 +34,7 @@ import org.json.JSONObject;
 
 public class HomeFragment extends Fragment {
     EditText empresa1,sector1,subsector1,cargo1,logros1,telefono1,ciudad1;
+    Bundle tt;
     private HomeViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -55,10 +56,12 @@ public class HomeFragment extends Fragment {
         logros1 =root.findViewById(R.id.editText9);
         telefono1  =root.findViewById(R.id.editText12);
         ciudad1  =root.findViewById(R.id.editText11);
+        tt = getActivity().getIntent().getExtras();
         Button button = (Button) root.findViewById(R.id.button5);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final Integer id_cliente = Integer.parseInt(tt.getString("usuario"));
                 final String empresa = empresa1.getText().toString();
                 final String sector = sector1.getText().toString();
                 final String subsector = subsector1.getText().toString();
@@ -99,7 +102,7 @@ public class HomeFragment extends Fragment {
                         }
                     };
 
-                    Experiencia datos = new Experiencia(empresa,sector,subsector,cargo,logros,telefono,ciudad, responListener, error);
+                    Experiencia datos = new Experiencia(id_cliente,empresa,sector,subsector,cargo,logros,telefono,ciudad, responListener, error);
                     RequestQueue queue = Volley.newRequestQueue(getActivity());
                     queue.add(datos);
             }

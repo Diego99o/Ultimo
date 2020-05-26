@@ -18,7 +18,7 @@ public class Personal extends StringRequest{
         params.put("cedula", cedula+"");
         params.put("genero", genero);
         params.put("estado", estado);
-        params.put("estado", ciudad_residencia);
+        params.put("ciudad_residencia", ciudad_residencia);
         params.put("dir", dir);
         params.put("ciudad_nacimiento", ciudad_nacimiento);
         params.put("telefono_fijo", telefono_fijo+"");

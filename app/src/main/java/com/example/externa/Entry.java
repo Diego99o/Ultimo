@@ -41,6 +41,7 @@ public class Entry extends AppCompatActivity {
 
     }
     public void guardar(View view) {
+
         final String tipo_doc = tipo_doc1.getText().toString();
         final Integer cedula = Integer.parseInt(cedula1.getText().toString());
         final String genero = genero1.getText().toString();
@@ -58,11 +59,15 @@ public class Entry extends AppCompatActivity {
             Response.Listener<String> responListener = new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
+                    String id_cliente1 = b.getString("usuario");
                     try {
                         JSONObject jsonResponse = new JSONObject(response);
                         boolean success = jsonResponse.getBoolean("success");
                         if (success) {
+                            Bundle d = new Bundle();
+                            d.putString("usuario",id_cliente1);
                             Intent pasar = new Intent(Entry.this, Bienvenidos.class);
+                            pasar.putExtras(d);
                             startActivity(pasar);
                         } else {
                             AlertDialog.Builder hh = new AlertDialog.Builder(Entry.this);
