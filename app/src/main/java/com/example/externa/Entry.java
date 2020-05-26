@@ -84,9 +84,9 @@ public class Entry extends AppCompatActivity {
             }
         };
 
-        ConsultaDatosPersonales datos= new ConsultaDatosPersonales(id_cliente, responListener, error);
-        RequestQueue queue= Volley.newRequestQueue(Entry.this);
-        queue.add(datos);
+//        ConsultaDatosPersonales datos= new ConsultaDatosPersonales(id_cliente,tipo_doc,cedula,genero,estado,ciudad_residencia,dir,ciudad_nacimiento,telefono_fijo, responListener, error);
+//        RequestQueue queue= Volley.newRequestQueue(Entry.this);
+//        queue.add(datos);
     }
 
     public void guardar(View view) {
