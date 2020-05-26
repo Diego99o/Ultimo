@@ -27,4 +27,5 @@ public class Bienvenidos extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
     }
 
+
 }

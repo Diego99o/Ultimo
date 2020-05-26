@@ -57,7 +57,7 @@ public class HomeFragment extends Fragment {
         telefono1  =root.findViewById(R.id.editText12);
         ciudad1  =root.findViewById(R.id.editText11);
         tt = getActivity().getIntent().getExtras();
-        Button button = (Button) root.findViewById(R.id.button5);
+        Button button = root.findViewById(R.id.button5);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +65,7 @@ public class HomeFragment extends Fragment {
                 final String empresa = empresa1.getText().toString();
                 final String sector = sector1.getText().toString();
                 final String subsector = subsector1.getText().toString();
-                final String cargo = cargo1.getText().toString();
+                final String nombre = cargo1.getText().toString();
                 final String logros = logros1.getText().toString();
                 final Integer telefono = Integer.parseInt(telefono1.getText().toString());
                 final String ciudad = ciudad1.getText().toString();
@@ -80,11 +80,19 @@ public class HomeFragment extends Fragment {
                                 JSONObject jsonResponse = new JSONObject(response);
                                 boolean success = jsonResponse.getBoolean("success");
                                 if (success) {
-                                    Intent pasar = new Intent(getActivity(), Bienvenidos.class);
-                                    startActivity(pasar);
+//                                    Intent pasar = new Intent(getActivity(), Bienvenidos.class);
+                                    empresa1.setText("");
+                                    sector1.setText("");
+                                    subsector1.setText("");
+                                    cargo1.setText("");
+                                    logros1.setText("");
+                                    telefono1.setText("");
+                                    ciudad1.setText("");
+                                    Toast.makeText(getContext(), "Guardado ", Toast.LENGTH_LONG).show();
+//                                    startActivity(pasar);
                                 } else {
                                     AlertDialog.Builder hh = new AlertDialog.Builder(getActivity());
-                                    hh.setMessage("No se registro")
+                                    hh.setMessage("No se guardo")
                                             .setNegativeButton("Retry", null)
                                             .create().show();
                                 }
@@ -102,8 +110,8 @@ public class HomeFragment extends Fragment {
                         }
                     };
 
-                    Experiencia datos = new Experiencia(id_cliente,empresa,sector,subsector,cargo,logros,telefono,ciudad, responListener, error);
-                    RequestQueue queue = Volley.newRequestQueue(getActivity());
+                    Experiencia datos = new Experiencia(id_cliente,empresa,sector,subsector,nombre,logros,telefono,ciudad, responListener, error);
+                    RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
                     queue.add(datos);
             }
         });
