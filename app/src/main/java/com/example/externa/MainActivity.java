@@ -50,9 +50,12 @@ public class MainActivity extends AppCompatActivity {
 
                     if (success)
                     {
+                        Bundle d = new Bundle();
+                        d.putString("usuario", id);
                         usuario.setText("");
                         pass.setText("");
                         Intent pasar = new Intent(MainActivity.this, Entry.class);
+                        pasar.putExtras(d);
                         startActivity(pasar);
                     }
                     else

@@ -23,6 +23,7 @@ import java.sql.Date;
 public class Entry extends AppCompatActivity {
 
     EditText tipo_doc1,cedula1,genero1,estado1,ciudad_residencia1,dir1,ciudad_nacimiento1,telefono_fijo1;
+    Bundle b;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,8 @@ public class Entry extends AppCompatActivity {
         dir1 = (EditText)findViewById(R.id.edit8);
         ciudad_nacimiento1 = (EditText)findViewById(R.id.edit9);
         telefono_fijo1 = (EditText)findViewById(R.id.edit10);
+        b = getIntent().getExtras();
+
     }
     public void guardar(View view) {
         final String tipo_doc = tipo_doc1.getText().toString();
@@ -46,6 +49,8 @@ public class Entry extends AppCompatActivity {
         final String dir = dir1.getText().toString();
         final String ciudad_nacimiento = ciudad_nacimiento1.getText().toString();
         final Integer telefono_fijo = Integer.parseInt(telefono_fijo1.getText().toString());
+        final Integer id_cliente = Integer.parseInt(b.getString("usuario"));
+
 
 
         Log.d("REGISTRO", "Entro metodo");
@@ -79,7 +84,7 @@ public class Entry extends AppCompatActivity {
                 }
             };
 
-            Personal datos = new Personal(tipo_doc,cedula,genero,estado,ciudad_residencia,dir,ciudad_nacimiento,telefono_fijo, responListener, error);
+            Personal datos = new Personal(id_cliente,tipo_doc,cedula,genero,estado,ciudad_residencia,dir,ciudad_nacimiento,telefono_fijo, responListener, error);
             RequestQueue queue = Volley.newRequestQueue(Entry.this);
             queue.add(datos);
         }
