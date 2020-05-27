@@ -46,17 +46,30 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject jsonResponse = new JSONObject(response);
                     boolean success = jsonResponse.getBoolean("success");
                     String id = jsonResponse.getString("Idcli");
-                    //Toast.makeText(this, "El cédula o contraseña es incorrecta.", Toast.LENGTH_LONG).show();
-
+                    String id_cliente = jsonResponse.getString("id");
+                    //
                     if (success)
                     {
-                        Bundle d = new Bundle();
-                        d.putString("usuario", id);
-                        usuario.setText("");
-                        pass.setText("");
-                        Intent pasar = new Intent(MainActivity.this, Entry.class);
-                        pasar.putExtras(d);
-                        startActivity(pasar);
+                        if ( id_cliente == null )
+                        {
+                            Bundle d = new Bundle();
+                            d.putString("usuario", id);
+                            usuario.setText("");
+                            pass.setText("");
+                            Intent pasar = new Intent(MainActivity.this, Entry.class);
+                            pasar.putExtras(d);
+                            startActivity(pasar);
+                        }
+                        else
+                        {
+                            Bundle x = new Bundle();
+                            x.putString("usuario", id);
+                            usuario.setText("");
+                            pass.setText("");
+                            Intent pasalo = new Intent(MainActivity.this, Bienvenidos.class);
+                            pasalo.putExtras(x);
+                            startActivity(pasalo);
+                        }
                     }
                     else
                     {

@@ -88,8 +88,9 @@ public class HomeFragment extends Fragment {
                                     logros1.setText("");
                                     telefono1.setText("");
                                     ciudad1.setText("");
-                                    Toast.makeText(getContext(), "Guardado ", Toast.LENGTH_LONG).show();*/
+                                    */
 //                                    startActivity(pasar);
+                                    Toast.makeText(getContext(), "Guardado ", Toast.LENGTH_LONG).show();
                                 } else {
                                     AlertDialog.Builder hh = new AlertDialog.Builder(getActivity());
                                     hh.setMessage("No se guardo")

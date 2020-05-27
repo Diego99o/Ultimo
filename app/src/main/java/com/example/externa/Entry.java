@@ -38,56 +38,56 @@ public class Entry extends AppCompatActivity {
         ciudad_nacimiento1 = (EditText)findViewById(R.id.edit9);
         telefono_fijo1 = (EditText)findViewById(R.id.edit10);
         b = getIntent().getExtras();
-        Consultar();
+//        Consultar();
 
     }
 
-    public void Consultar(){
-        final Integer id_cliente = Integer.parseInt(b.getString("usuario"));
+//    public void Consultar(){
+//        final Integer id_cliente = Integer.parseInt(b.getString("usuario"));
+//
+//        Response.Listener<String> responListener = new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response)
+//            {
+//                try {
+//                    JSONObject jsonResponse = new JSONObject(response);
+//                    boolean success = jsonResponse.getBoolean("success");
+//                    String id = jsonResponse.getString("Idcli");
+//                    //Toast.makeText(this, "El cédula o contraseña es incorrecta.", Toast.LENGTH_LONG).show();
+//
+//                    if (success)
+//                    {
+//                        Bundle d = new Bundle();
+//                        d.putString("usuario", id);
+//
+//                        Intent pasar = new Intent(Entry.this, Bienvenidos.class);
+//                        pasar.putExtras(d);
+//                        startActivity(pasar);
+//                    }
+//                    else
+//                    {
+//                        AlertDialog.Builder hh = new AlertDialog.Builder(Entry.this);
+//                        hh.setMessage("No hay datos del usuario")
+//                                .setNegativeButton("Reintentar",null)
+//                                .create().show();
+//                    }
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        };
+//
+//        Response.ErrorListener error = new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.d("ERROR REGISTRO", error.toString());
+//            }
+//        };
 
-        Response.Listener<String> responListener = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response)
-            {
-                try {
-                    JSONObject jsonResponse = new JSONObject(response);
-                    boolean success = jsonResponse.getBoolean("success");
-                    String id = jsonResponse.getString("Idcli");
-                    //Toast.makeText(this, "El cédula o contraseña es incorrecta.", Toast.LENGTH_LONG).show();
-
-                    if (success)
-                    {
-                        Bundle d = new Bundle();
-                        d.putString("usuario", id);
-
-                        Intent pasar = new Intent(Entry.this, Bienvenidos.class);
-                        pasar.putExtras(d);
-                        startActivity(pasar);
-                    }
-                    else
-                    {
-                        AlertDialog.Builder hh = new AlertDialog.Builder(Entry.this);
-                        hh.setMessage("No hay datos del usuario")
-                                .setNegativeButton("Reintentar",null)
-                                .create().show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-
-        Response.ErrorListener error = new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("ERROR REGISTRO", error.toString());
-            }
-        };
-
-//        ConsultaDatosPersonales datos= new ConsultaDatosPersonales(id_cliente,tipo_doc,cedula,genero,estado,ciudad_residencia,dir,ciudad_nacimiento,telefono_fijo, responListener, error);
+//        ConsultaDatosPersonales dat= new ConsultaDatosPersonales(id_cliente,tipo_doc,cedula,genero,estado,ciudad_residencia,dir,ciudad_nacimiento,telefono_fijo, responListener, error);
 //        RequestQueue queue= Volley.newRequestQueue(Entry.this);
-//        queue.add(datos);
-    }
+//        queue.add(dat);
+//    }
 
     public void guardar(View view) {
 
