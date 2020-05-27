@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     //
                     if (success)
                     {
-                        if ( id_cliente == null )
+                        if (id_cliente == "null")
                         {
                             Bundle d = new Bundle();
                             d.putString("usuario", id);
