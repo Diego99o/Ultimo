@@ -59,8 +59,8 @@ public class DashboardFragment extends Fragment {
         return root;
     }
     private void Llenarvista(){
-
-        Response.Listener<String> responListener = new Response<>().Listener<String>() {
+        final Integer id_cliente = Integer.parseInt(bb.getString("usuario"));
+        Response.Listener<String> responListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response)
             {
@@ -82,7 +82,17 @@ public class DashboardFragment extends Fragment {
 
                     if (success)
                     {
-
+                        nombre1.setText(nomcli);
+                        apellido1.setText(apecli);
+                        edad1.setText(edadcli);
+                        celular1.setText(telecli);
+                        clasedoc1.setText(tipo_doc);
+                        numdoc1.setText(cedula);
+                        genero1.setText(genero);
+                        ciudad_r.setText(ciudad_residencia);
+                        direcion_r.setText(dir);
+                        ciudad_n.setText(ciudad_nacimiento);
+                        num_fijo.setText(telefono_fijo);
                     }
                     else
                     {
@@ -104,7 +114,7 @@ public class DashboardFragment extends Fragment {
             }
         };
 
-        ConsultaDatosPersonales dat= new ConsultaDatosPersonales(Nomcli, Apecli,Edadcli, Telecli,tipo_doc,cedula,genero, ciudad_residencia,dir, ciudad_nacimiento,telefono_fijo, responListener, error);
+        ConsultaDatosPersonales dat= new ConsultaDatosPersonales(id_cliente, responListener, error);
         RequestQueue queue= Volley.newRequestQueue(getActivity().getApplicationContext());
         queue.add(dat);
     }
