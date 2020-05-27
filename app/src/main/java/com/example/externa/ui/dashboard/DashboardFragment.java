@@ -26,7 +26,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class DashboardFragment extends Fragment {
-
+    TextView nombre1,apellido1,edad1,celular1,clasedoc1,numdoc1,genero1,ciudad_r,direcion_r,ciudad_n,num_fijo;
+    Bundle bb;
     private DashboardViewModel dashboardViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -41,6 +42,19 @@ public class DashboardFragment extends Fragment {
 //                textView.setText(s);
 //            }
 //        });
+        nombre1 = root.findViewById(R.id.Text3);
+        apellido1 = root.findViewById(R.id.Text5);
+        edad1 =root.findViewById(R.id.Text7);
+        celular1 =root.findViewById(R.id.Text9);
+        clasedoc1 =root.findViewById(R.id.Text11);
+        numdoc1 =root.findViewById(R.id.Text13);
+        genero1 =root.findViewById(R.id.Text15);
+        ciudad_r =root.findViewById(R.id.Text17);
+        direcion_r =root.findViewById(R.id.Text19);
+        ciudad_n =root.findViewById(R.id.Text21);
+        num_fijo =root.findViewById(R.id.Text23);
+
+        bb = getActivity().getIntent().getExtras();
         Llenarvista();
         return root;
     }
@@ -53,7 +67,17 @@ public class DashboardFragment extends Fragment {
                 try {
                     JSONObject jsonResponse = new JSONObject(response);
                     boolean success = jsonResponse.getBoolean("success");
-                    String id = jsonResponse.getString("Idcli");
+                    String nomcli = jsonResponse.getString("Nomcli");
+                    String apecli = jsonResponse.getString("Apecli");
+                    String edadcli = jsonResponse.getString("Edadcli");
+                    String telecli = jsonResponse.getString("Telecli");
+                    String tipo_doc = jsonResponse.getString("tipo_doc");
+                    String cedula = jsonResponse.getString("cedula");
+                    String genero = jsonResponse.getString("genero");
+                    String ciudad_residencia = jsonResponse.getString("ciudad_residencia");
+                    String dir = jsonResponse.getString("dir");
+                    String ciudad_nacimiento = jsonResponse.getString("ciudad_nacimiento");
+                    String telefono_fijo = jsonResponse.getString("telefono_fijo");
                     //Toast.makeText(this, "El cédula o contraseña es incorrecta.", Toast.LENGTH_LONG).show();
 
                     if (success)
