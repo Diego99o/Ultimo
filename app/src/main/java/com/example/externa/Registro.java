@@ -42,7 +42,7 @@ public class Registro extends AppCompatActivity {
 
         Log.d("REGISTRO", "Entro metodo");
 
-        if (!Nomcli.isEmpty() && !Apecli.isEmpty() && !Edadcli.equals("") && !Correocli.isEmpty() && !Telecli.equals("") && !Clavecli.isEmpty()) {
+        if (!Nomcli.equals("") && !Apecli.equals("") && !Edadcli.equals("") && !Correocli.equals("") && !Telecli.equals("") && !Clavecli.equals("")) {
 
             Response.Listener<String> responListener = new Response.Listener<String>() {
                 @Override
@@ -51,6 +51,7 @@ public class Registro extends AppCompatActivity {
                         JSONObject jsonResponse = new JSONObject(response);
                         boolean success = jsonResponse.getBoolean("success");
                         if (success) {
+                            Toast.makeText(getApplicationContext(), "Registrado",Toast.LENGTH_LONG).show();
                             Intent pasar = new Intent(Registro.this, MainActivity.class);
                             startActivity(pasar);
                         } else {

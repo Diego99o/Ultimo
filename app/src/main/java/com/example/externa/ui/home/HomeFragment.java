@@ -1,9 +1,13 @@
 package com.example.externa.ui.home;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -49,6 +53,7 @@ public class HomeFragment extends Fragment {
 //                textView.setText(s);
 //            }
 //        });
+        setHasOptionsMenu(true);
         empresa1 = root.findViewById(R.id.editText);
         sector1 = root.findViewById(R.id.editText2);
         subsector1 =root.findViewById(R.id.editText3);
@@ -118,4 +123,24 @@ public class HomeFragment extends Fragment {
         });
         return root;
     }
+
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
+        inflater.inflate(R.menu.overflow, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem cerrar){
+        int id = cerrar.getItemId();
+        if(id==R.id.cerrar){
+            Toast.makeText(getContext(), "Cerrar sesion", Toast.LENGTH_LONG).show();
+            Intent ii = new Intent(getActivity(), MainActivity.class);
+            startActivity(ii);
+        }
+        return super.onOptionsItemSelected(cerrar);
+    }
+
+
+
 }

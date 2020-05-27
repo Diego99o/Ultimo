@@ -4,8 +4,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -68,6 +71,7 @@ public class Entry extends AppCompatActivity {
                         if (success) {
                             Bundle d = new Bundle();
                             d.putString("usuario",id_cliente1);
+                            Toast.makeText(getApplicationContext(), "Info guardada",Toast.LENGTH_LONG).show();
                             Intent pasar = new Intent(Entry.this, Bienvenidos.class);
                             pasar.putExtras(d);
                             startActivity(pasar);
@@ -95,6 +99,20 @@ public class Entry extends AppCompatActivity {
             RequestQueue queue = Volley.newRequestQueue(Entry.this);
             queue.add(datos);
         }
-
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.overflow,menu);
+        return true;
     }
+    public boolean onOptionsItemSelected(MenuItem cerrar){
+        int id = cerrar.getItemId();
+        if(id==R.id.cerrar){
+            Toast.makeText(this, "Cerrar sesion", Toast.LENGTH_LONG).show();
+            finish();
+            Intent ii = new Intent(this,MainActivity.class);
+            startActivity(ii);
+        }
+        return super.onOptionsItemSelected(cerrar);
+    }
+
+}
 

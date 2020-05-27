@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                             d.putString("usuario", id);
                             usuario.setText("");
                             pass.setText("");
+                            Toast.makeText(getApplicationContext(), "Usuario nuevo",Toast.LENGTH_LONG).show();
                             Intent pasar = new Intent(MainActivity.this, Entry.class);
                             pasar.putExtras(d);
                             startActivity(pasar);
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                             x.putString("usuario", id);
                             usuario.setText("");
                             pass.setText("");
+                            Toast.makeText(getApplicationContext(), "Ya habias estado antes",Toast.LENGTH_LONG).show();
                             Intent pasalo = new Intent(MainActivity.this, Bienvenidos.class);
                             pasalo.putExtras(x);
                             startActivity(pasalo);

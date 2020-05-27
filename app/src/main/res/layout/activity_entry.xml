@@ -43,8 +43,8 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/style_borde"
                 android:ems="10"
-                android:maxLength="14"
                 android:inputType="textPersonName"
+                android:maxLength="10"
                 android:textSize="24sp" />
             <TextView
                 android:id="@+id/Text3"
@@ -62,8 +62,8 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/style_borde"
                 android:ems="10"
-                android:maxLength="14"
                 android:inputType="number"
+                android:maxLength="11"
                 android:textSize="24sp" />
 
             <TextView
@@ -83,7 +83,7 @@
                 android:background="@drawable/style_borde"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:maxLength="14"
+                android:maxLength="10"
                 android:textSize="24sp" />
             <TextView
                 android:id="@+id/Text6"
@@ -102,7 +102,7 @@
                 android:background="@drawable/style_borde"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:maxLength="14"
+                android:maxLength="12"
                 android:textSize="24sp" />
             <TextView
                 android:id="@+id/Text7"
@@ -140,7 +140,7 @@
                 android:background="@drawable/style_borde"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:maxLength="14"
+                android:maxLength="30"
                 android:textSize="24sp" />
 
             <TextView
@@ -179,7 +179,7 @@
                 android:background="@drawable/style_borde"
                 android:ems="10"
                 android:inputType="number"
-                android:maxLength="14"
+                android:maxLength="10"
                 android:textSize="24sp" />
 
             <Button

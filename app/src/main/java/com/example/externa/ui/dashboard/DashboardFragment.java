@@ -1,12 +1,18 @@
 package com.example.externa.ui.dashboard;
 
 import android.app.AlertDialog;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -20,6 +26,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.example.externa.Bienvenidos;
 import com.example.externa.ConsultaDatosPersonales;
+import com.example.externa.MainActivity;
 import com.example.externa.R;
 
 import org.json.JSONException;
@@ -53,6 +60,7 @@ public class DashboardFragment extends Fragment {
         direcion_r =root.findViewById(R.id.Text19);
         ciudad_n =root.findViewById(R.id.Text21);
         num_fijo =root.findViewById(R.id.Text23);
+        setHasOptionsMenu(true);
 
         bb = getActivity().getIntent().getExtras();
         Llenarvista();
@@ -117,5 +125,25 @@ public class DashboardFragment extends Fragment {
         ConsultaDatosPersonales dat= new ConsultaDatosPersonales(id_cliente, responListener, error);
         RequestQueue queue= Volley.newRequestQueue(getActivity().getApplicationContext());
         queue.add(dat);
+    }
+
+
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
+//        getActivity().getMenuInflater().inflate(R.menu.overflow,menu);
+//        return true;
+        inflater.inflate(R.menu.overflow, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem cerrar){
+        int id = cerrar.getItemId();
+        if(id==R.id.cerrar){
+            Toast.makeText(getContext(), "Cerrar sesion", Toast.LENGTH_LONG).show();
+            Intent ii = new Intent(getActivity(), MainActivity.class);
+            startActivity(ii);
+        }
+        return super.onOptionsItemSelected(cerrar);
     }
 }
