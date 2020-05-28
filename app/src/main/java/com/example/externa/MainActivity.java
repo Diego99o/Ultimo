@@ -38,6 +38,13 @@ public class MainActivity extends AppCompatActivity {
     public void ingresar (View v){
         final String Correocli = usuario.getText().toString();
         final String Clavecli = pass.getText().toString();
+
+        if(Correocli.isEmpty() || Clavecli.isEmpty())
+        {
+            Toast.makeText(getApplicationContext(), "Campos de correo y clave son obligatorios",Toast.LENGTH_LONG).show();
+            return;
+        }
+
         Response.Listener<String> responListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response)
