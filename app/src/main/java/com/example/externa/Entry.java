@@ -48,21 +48,21 @@ public class Entry extends AppCompatActivity {
     public void guardar(View view) {
 
         final String tipo_doc = tipo_doc1.getText().toString();
-        final Integer cedula = Integer.parseInt(cedula1.getText().toString());
+        final String cedula2 = cedula1.getText().toString();
         final String genero = genero1.getText().toString();
         final String estado = estado1.getText().toString();
         final String ciudad_residencia = ciudad_residencia1.getText().toString();
         final String dir = dir1.getText().toString();
         final String ciudad_nacimiento = ciudad_nacimiento1.getText().toString();
-        final Integer telefono_fijo = Integer.parseInt(telefono_fijo1.getText().toString());
+        final String telefono_fijo2 = telefono_fijo1.getText().toString();
         final Integer id_cliente = Integer.parseInt(b.getString("usuario"));
-        if(tipo_doc.isEmpty() || genero.isEmpty()  || estado.isEmpty()  || ciudad_residencia.isEmpty() || dir.isEmpty() || ciudad_nacimiento.isEmpty())
+        if(tipo_doc.isEmpty() || cedula2.isEmpty() || genero.isEmpty()  || estado.isEmpty()  || ciudad_residencia.isEmpty() || dir.isEmpty() || ciudad_nacimiento.isEmpty() || telefono_fijo2.isEmpty())
         {
             Toast.makeText(getApplicationContext(), "Llenar todos los campos",Toast.LENGTH_LONG).show();
             return;
         }
-
-
+        final Integer cedula = Integer.parseInt(cedula1.getText().toString());
+        final Integer telefono_fijo = Integer.parseInt(telefono_fijo1.getText().toString());
         Log.d("REGISTRO", "Entro metodo");
 
             Response.Listener<String> responListener = new Response.Listener<String>() {

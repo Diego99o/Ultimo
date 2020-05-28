@@ -37,17 +37,18 @@ public class Registro extends AppCompatActivity {
 
         final String Nomcli = nombre1.getText().toString();
         final String Apecli = apellido1.getText().toString();
-        final Integer Edadcli = Integer.parseInt(edad1.getText().toString());
+        final String Edadcli1 = edad1.getText().toString();
         final String Correocli = correo1.getText().toString();
-        final Integer Telecli = Integer.parseInt(numtelefono1.getText().toString());
+        final String Telecli1 = numtelefono1.getText().toString();
         final String Clavecli = clave1.getText().toString();
 
-        if(Nomcli.isEmpty() || Apecli.isEmpty()  || Correocli.isEmpty()  || Clavecli.isEmpty())
+        if(Nomcli.isEmpty() || Apecli.isEmpty() || Edadcli1.isEmpty() ||  Correocli.isEmpty() || Telecli1.isEmpty() || Clavecli.isEmpty())
         {
             Toast.makeText(getApplicationContext(), "Llenar todos los campos",Toast.LENGTH_LONG).show();
             return;
         }
-
+        final Integer Edadcli = Integer.parseInt(edad1.getText().toString());
+        final Integer Telecli = Integer.parseInt(numtelefono1.getText().toString());
         Log.d("REGISTRO", "Entro metodo");
 
 
