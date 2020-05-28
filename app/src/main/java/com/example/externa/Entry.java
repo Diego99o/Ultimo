@@ -56,7 +56,11 @@ public class Entry extends AppCompatActivity {
         final String ciudad_nacimiento = ciudad_nacimiento1.getText().toString();
         final Integer telefono_fijo = Integer.parseInt(telefono_fijo1.getText().toString());
         final Integer id_cliente = Integer.parseInt(b.getString("usuario"));
-
+        if(tipo_doc.isEmpty() || genero.isEmpty()  || estado.isEmpty()  || ciudad_residencia.isEmpty() || dir.isEmpty() || ciudad_nacimiento.isEmpty())
+        {
+            Toast.makeText(getApplicationContext(), "Llenar todos los campos",Toast.LENGTH_LONG).show();
+            return;
+        }
 
 
         Log.d("REGISTRO", "Entro metodo");

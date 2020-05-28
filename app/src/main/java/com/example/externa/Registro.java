@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -33,6 +34,7 @@ public class Registro extends AppCompatActivity {
         this.setTitle(R.string.act_2);
     }
     public void datos(View view) {
+
         final String Nomcli = nombre1.getText().toString();
         final String Apecli = apellido1.getText().toString();
         final Integer Edadcli = Integer.parseInt(edad1.getText().toString());
@@ -40,9 +42,14 @@ public class Registro extends AppCompatActivity {
         final Integer Telecli = Integer.parseInt(numtelefono1.getText().toString());
         final String Clavecli = clave1.getText().toString();
 
+        if(Nomcli.isEmpty() || Apecli.isEmpty()  || Correocli.isEmpty()  || Clavecli.isEmpty())
+        {
+            Toast.makeText(getApplicationContext(), "Llenar todos los campos",Toast.LENGTH_LONG).show();
+            return;
+        }
+
         Log.d("REGISTRO", "Entro metodo");
 
-        if (!Nomcli.equals("") && !Apecli.equals("") && !Edadcli.equals("") && !Correocli.equals("") && !Telecli.equals("") && !Clavecli.equals("")) {
 
             Response.Listener<String> responListener = new Response.Listener<String>() {
                 @Override
@@ -77,9 +84,6 @@ public class Registro extends AppCompatActivity {
             Servidorweb1 datos = new Servidorweb1(Nomcli, Apecli, Edadcli, Correocli, Telecli, Clavecli, responListener, error);
             RequestQueue queue = Volley.newRequestQueue(Registro.this);
             queue.add(datos);
-        }
-        else{
-            Toast.makeText(this, "Debes llenar todos los campos", Toast.LENGTH_LONG).show();
-        }
+
     }
 }
