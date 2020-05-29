@@ -86,14 +86,14 @@ public class HomeFragment extends Fragment {
                                 boolean success = jsonResponse.getBoolean("success");
                                 if (success) {
 //                                    Intent pasar = new Intent(getActivity(), Bienvenidos.class);
-                                    /*empresa1.setText("");
+                                    empresa1.setText("");
                                     sector1.setText("");
                                     subsector1.setText("");
                                     cargo1.setText("");
                                     logros1.setText("");
                                     telefono1.setText("");
                                     ciudad1.setText("");
-                                    */
+
 //                                    startActivity(pasar);
                                     Toast.makeText(getContext(), "Guardado ", Toast.LENGTH_LONG).show();
                                 } else {
